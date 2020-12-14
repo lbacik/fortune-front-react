@@ -1,8 +1,19 @@
 import React from 'react'
-import getFortune from './FortuneClient'
+import './Fortune.css'
 
-const Fortune = () => {
-    return <p> {getFortune()} </p>
+const Fortune = (props) => {
+    const fortune = props.fortune
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\n/g, '<br/>')
+
+    return (
+        <div id="fortune"
+             onClick={props.onClick}
+             dangerouslySetInnerHTML={{ __html: fortune}}>
+        </div>
+    )
 }
 
 export default Fortune

@@ -1,0 +1,27 @@
+#explorer {
+    background-color: cornflowerblue;
+    text-align: left;
+    margin: 10px;
+    padding: 10px;
+}
+
+#explorer {
+    float: left;
+    display: table;
+}
+
+#explorer .item-fortune {
+    display: table-row;
+}
+
+#explorer .item-fortune .index {
+    display: table-cell;
+    background-color: dodgerblue;
+    padding-right: 2px;
+    text-align: right;
+}
+
+#explorer .item-fortune .fortune {
+    display: table-cell;
+    padding-left: 2px;
+}
