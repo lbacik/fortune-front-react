@@ -5,6 +5,10 @@
     padding: 10px;
 }
 
+#explorer .up {
+    background-color: blueviolet;
+}
+
 #explorer {
     float: left;
     display: table;

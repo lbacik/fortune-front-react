@@ -6,7 +6,7 @@ import axios from "axios"
 
 class Explorer extends Component  {
 
-    ITEM_PATH_UP = '..'
+    ITEM_PATH_UP = '.. (up)'
 
     LIST_TYPE_PATH = 'path'
     LIST_TYPE_FILE = 'file'
@@ -66,30 +66,37 @@ class Explorer extends Component  {
         this.getList('')
     }
 
+    createItemFS(item) {
+        return (
+            <ItemFS key={item}
+                    onClick={() => this.onClickHandler(item)}
+            >{item}</ItemFS>
+        )
+    }
+
+    createItemFortune(item, index) {
+        return (
+            <ItemFortune
+                key={index}
+                index={index}
+                onClick={() => this.props.fortuneCallback(item)}
+            >{item}</ItemFortune>
+        )
+    }
+
     render() {
-
         const items = this.state.list.map((item, index) => {
-
             if (this.state.listType === this.LIST_TYPE_PATH) {
-                return (
-                    <ItemFS key={item}
-                            onClick={() => this.onClickHandler(item)}
-                    >{item}</ItemFS>
-                )
+                return this.createItemFS(item)
             } else {
-                return (
-                    <ItemFortune
-                            key={index}
-                            index={index}
-                            onClick={() => this.props.fortuneCallback(item)}
-                    >{item}</ItemFortune>
-                )
+                return this.createItemFortune(item, index)
             }
         })
 
-        const up = <ItemFS key={this.ITEM_PATH_UP}
-                           onClick={() => this.onClickHandler(this.ITEM_PATH_UP)}
-                    >{this.ITEM_PATH_UP}</ItemFS>
+        let up = null
+        if (this.state.path !== '') {
+            up = this.createItemFS(this.ITEM_PATH_UP)
+        }
 
         return (
             <div id="explorer">{[up, ...items]}</div>
