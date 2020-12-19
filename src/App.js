@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
 import './App.css';
 import Fortune from './Fortune/Fortune'
@@ -53,8 +54,8 @@ class App extends Component {
                       fortune={this.state.fortune}
                       onClick={this.newFortune.bind(this)}/>
               </div>
-              <div id="footer">
-              </div>
+              <footer id="footer" className="footer mt-auto py-5 bg-dark">
+              </footer>
           </div>
         );
     }
