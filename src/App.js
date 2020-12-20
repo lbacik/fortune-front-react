@@ -1,14 +1,15 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Component } from 'react';
-import './App.css';
-import Fortune from './Fortune/Fortune'
-import Explorer from './Explorer/Explorer'
-import ExplorerToggle from './ExplorerToggle/ExplorerToggle'
+import Fortune from './components/Fortune/Fortune'
+import Explorer from './containers/Explorer/Explorer'
+import ExplorerToggle from './components/ExplorerToggle/ExplorerToggle'
 import axios from "axios"
+import Layout from './components/Layout/Layout'
+import {env} from "process"
+
+const FORTUNE_URL = env.FORTUNE_URL || 'http://localhost:8080/fortune'
 
 class App extends Component {
-
-    FORTUNE_URL = 'http://localhost:8080/fortune'
 
     state = {
         explorerShow: false,
@@ -20,13 +21,13 @@ class App extends Component {
     }
 
     newFortune() {
-        axios.get(this.FORTUNE_URL)
+        axios.get(FORTUNE_URL)
             .then(res => {
                 this.setState({fortune: res.data.fortune})
             })
     }
 
-    exploreToggleHandler() {
+    exploreToggleHandler = () => {
         this.setState({explorerShow: ! this.state.explorerShow})
     }
 
@@ -42,21 +43,25 @@ class App extends Component {
         }
 
         return (
-          <div className="App">
-              <div id="header">
-                  <ExplorerToggle
-                      explorerShow={this.state.explorerShow}
-                      onClick={this.exploreToggleHandler.bind(this)} />
-              </div>
-              <div id="body">
-                  {explorer}
-                  <Fortune
-                      fortune={this.state.fortune}
-                      onClick={this.newFortune.bind(this)}/>
-              </div>
-              <footer id="footer" className="footer mt-auto py-5 bg-dark">
-              </footer>
-          </div>
+            <Layout>
+                <div className="row">
+                    <div className="container col-3 p-0 pb-2">
+                        <ExplorerToggle
+                            onClick={this.exploreToggleHandler}
+                            explorerShow={this.state.explorerShow}
+                        />
+
+                        {explorer}
+                    </div>
+
+                    <div className="container col-7 pt-4">
+                        <Fortune
+                            fortune={this.state.fortune}
+                            onClick={this.newFortune.bind(this)}/>
+
+                    </div>
+                </div>
+            </Layout>
         );
     }
 }
