@@ -9,10 +9,11 @@ const Fortune = (props) => {
         .replace(/\n/g, '<br/>')
 
     return (
-        <div id="fortune"
+        <p id="fortune"
+             className="container mt-4 p-4 rounded"
              onClick={props.onClick}
              dangerouslySetInnerHTML={{ __html: fortune}}>
-        </div>
+        </p>
     )
 }
 
