@@ -3,6 +3,9 @@ import './Explorer.css'
 import ItemFS from './Item/ItemFS'
 import ItemFortune from "./Item/ItemFortune"
 import axios from "axios"
+import {env} from "process"
+
+const FORTUNE_URL = env.FORTUNE_URL || 'http://localhost:8080/fortune'
 
 class Explorer extends Component  {
 
@@ -12,7 +15,7 @@ class Explorer extends Component  {
     LIST_TYPE_FILE = 'file'
 
     state = {
-        root: 'http://localhost:8080/fortune',
+        root: FORTUNE_URL,
         path: '',
         list: [],
         listType: this.LIST_TYPE_PATH,
@@ -99,7 +102,9 @@ class Explorer extends Component  {
         }
 
         return (
-            <div id="explorer">{[up, ...items]}</div>
+            <ul className="explorer p-2 rounded">
+                {[up, ...items]}
+            </ul>
         )
     }
 }
