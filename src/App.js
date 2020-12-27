@@ -43,8 +43,8 @@ class App extends Component {
 
         return (
             <Layout>
-                <div className="row">
-                    <div className="container col-3 p-0 pb-2">
+                <div className="d-flex flex-row">
+                    <div className="col-3 m-2 p-0 pb-2">
                         <ExplorerToggle
                             onClick={this.exploreToggleHandler}
                             explorerShow={this.state.explorerShow}
@@ -53,7 +53,7 @@ class App extends Component {
                         {explorer}
                     </div>
 
-                    <div className="container col-7 pt-4">
+                    <div className="container-fluid pt-4">
                         <Fortune
                             fortune={this.state.fortune}
                             onClick={this.newFortune.bind(this)}/>
