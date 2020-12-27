@@ -22,33 +22,24 @@ class Explorer extends Component  {
 
     getList(item) {
 
-        console.log(`ITEM: ${item}`)
-
         let newListType = this.LIST_TYPE_PATH
         let newPath = this.state.path
 
         if (item === this.ITEM_PATH_UP) {
             newListType = this.LIST_TYPE_PATH
             newPath = ''
-            console.log('UP')
         } else if (this.state.listType === this.LIST_TYPE_PATH && item.slice(-1) === '/') {
             newListType = this.LIST_TYPE_PATH
             newPath = [this.state.path, item].join('/')
-            console.log(`new path 1: ${newPath}`)
         } else if (this.state.path === '' && item !== '') {
             newListType = this.LIST_TYPE_FILE
             newPath = [this.state.path, item].join('/')
-            console.log(`new path 2: ${newPath}`)
         } else if (this.state.path !== '' && this.state.listType === this.LIST_TYPE_PATH) {
             newListType = this.LIST_TYPE_FILE
             newPath = [this.state.path, item].join('/')
-            console.log(`new path 3: ${newPath}`)
         }
 
         const url = `${[this.state.root, newPath].join('/')}?explore`
-
-        console.log(`LIST: ${url}`)
-        console.log(`LIST Type: ${newListType}`)
 
         axios.get(`${url}`)
             .then(res => {
