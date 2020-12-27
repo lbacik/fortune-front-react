@@ -5,9 +5,8 @@ import Explorer from './containers/Explorer/Explorer'
 import ExplorerToggle from './components/ExplorerToggle/ExplorerToggle'
 import axios from "axios"
 import Layout from './components/Layout/Layout'
-import {env} from "process"
 
-const FORTUNE_URL = env.FORTUNE_URL || 'http://localhost:8080/fortune'
+const fortuneUrl = process.env.REACT_APP_FORTUNE_URL || 'http://localhost:8080/fortune'
 
 class App extends Component {
 
@@ -21,7 +20,7 @@ class App extends Component {
     }
 
     newFortune() {
-        axios.get(FORTUNE_URL)
+        axios.get(fortuneUrl)
             .then(res => {
                 this.setState({fortune: res.data.fortune})
             })
