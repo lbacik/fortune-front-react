@@ -1,0 +1,7 @@
+#fortune {
+    font-size: large;
+}
+
+p:hover {
+    background-color: yellowgreen;
+}

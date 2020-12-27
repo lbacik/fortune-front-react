@@ -1,0 +1,14 @@
+.explorer {
+    background-color: cornflowerblue;
+}
+
+ul.explorer {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.explorer li:hover {
+    background-color: darkblue;
+    color: aliceblue;
+}
