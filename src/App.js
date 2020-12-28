@@ -20,7 +20,7 @@ class App extends Component {
     }
 
     newFortune() {
-        axios.get(fortuneUrl)
+        axios.get(`${fortuneUrl}/fortune`)
             .then(res => {
                 this.setState({fortune: res.data.fortune})
             })

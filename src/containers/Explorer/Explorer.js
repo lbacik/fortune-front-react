@@ -4,7 +4,7 @@ import ItemFS from './Item/ItemFS'
 import ItemFortune from "./Item/ItemFortune"
 import axios from "axios"
 
-const fortuneUrl = process.env.REACT_APP_FORTUNE_URL || 'http://localhost:8080/fortune'
+const fortuneUrl = process.env.REACT_APP_FORTUNE_URL || 'http://localhost:8080'
 
 class Explorer extends Component  {
 
@@ -14,7 +14,7 @@ class Explorer extends Component  {
     LIST_TYPE_FILE = 'file'
 
     state = {
-        root: fortuneUrl,
+        root: `${fortuneUrl}/fortune`,
         path: '',
         list: [],
         listType: this.LIST_TYPE_PATH,
