@@ -13,7 +13,8 @@ or
 ## configuration
 
 The only one required value (for the time being) is the Fortune API url, by default it is set to 
-`http://localhost:8080/fortune`
+`http://localhost:8080` (for more information about Fortune Api please check the https://github.com/lbacik/fortune-api 
+project)
 
 ## development
 
