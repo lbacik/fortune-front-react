@@ -19,15 +19,12 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>fortune</title>
   </head>
-  <body>
+  <body class="d-flex flex-column min-vh-100">
 
     <header class="py-5 text-right pr-5">
       <h1>fortune</h1>
-      <a href="https://github.com/lbacik/fortune-front-react">
-        https://github.com/lbacik/fortune-front-react
-      </a>
     </header>
 
     <noscript>
@@ -36,8 +33,14 @@
 
     <div id="root"></div>
 
-    <footer class="footer">
-      <!-- TODO fix to the bottom -->
+    <footer class="footer mt-auto bg-dark p-4 text-center">
+        <div>
+          Homepage: <a href="https://github.com/lbacik/fortune-front-react">
+          https://github.com/lbacik/fortune-front-react
+        </a>
+        </div>
+        <div id="api-url"></div>
+        <div id="version"></div>
     </footer>
   </body>
 </html>

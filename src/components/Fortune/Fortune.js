@@ -10,7 +10,7 @@ const Fortune = (props) => {
 
     return (
         <p id="fortune"
-             className="container mt-4 p-4 rounded"
+             className="mt-4 p-4 rounded sticky-top"
              onClick={props.onClick}
              dangerouslySetInnerHTML={{ __html: fortune}}>
         </p>

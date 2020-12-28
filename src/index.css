@@ -9,8 +9,13 @@ header {
   color: aliceblue;
 }
 
-header a {
-  font-size: smaller;
+footer {
+  font-size: small;
+  min-height: 100px;
+  color: dimgray;
+}
+
+footer a {
   text-decoration: none;
-  color: azure;
+  color: darkgray;
 }
