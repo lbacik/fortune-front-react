@@ -1,0 +1,16 @@
+#fortune {
+    font-size: large;
+}
+
+p:hover {
+    background-color: yellowgreen;
+}
+
+.source {
+    font-size: smaller;
+}
+
+span:hover.link {
+    color: cornflowerblue;
+    font-weight: bolder;
+}
