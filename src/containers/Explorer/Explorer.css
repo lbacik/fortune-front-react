@@ -3,13 +3,28 @@
     color: azure;
 }
 
+.explorer .path {
+    color: lightblue;
+}
+
 ul.explorer {
     list-style-type: none;
     margin: 0;
     padding: 0;
+    /*font-size: small;*/
 }
 
 .explorer li:hover {
     background-color: darkblue;
     color: aliceblue;
+    /*font-size: larger;*/
+}
+
+.explorer .up {
+    background-color: cornflowerblue;
+    color: lightblue;
+}
+
+.explorer .hit {
+    background-color: royalblue;
 }
