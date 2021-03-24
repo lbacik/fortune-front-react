@@ -1,6 +1,6 @@
 # Fortune - front
 
-This repository is a part of Fortune project - it is a frontend for Fortune API: https://github.com/lbacik/fortune-api
+This repository is a part of Fortune project - it is a frontend for the Fortune API: https://github.com/lbacik/fortune-api
 
 ## dependencies
 
@@ -14,7 +14,7 @@ or
 
 The only one required value (for the time being) is the Fortune API url, by default it is set to 
 `http://localhost:8080` (for more information about Fortune Api please check the https://github.com/lbacik/fortune-api 
-project)
+project). The Fortune Api url can be passed to the app through the env variable `REACT_APP_FORTUNE_URL`.
 
 ## development
 
@@ -24,8 +24,6 @@ or
 
     npm start
 
-The Fortune API url can be set by the `REACT_APP_FORTUNE_URL` environment variable
-
 ## production
 
     yarn build
@@ -34,15 +32,14 @@ or
 
     npm build
 
-**Please note** that Fortune API url have to be set during the build process - there is no way (currently) to change it 
-later, during the runtime.
+**Please note** that Fortune API url (`REACT_APP_FORTUNE_URL`) have to be set before the build process started - there 
+is no way (currently) to change it later, during the runtime.
 
 ## docker
 
 ### build
 
-When building the docker image the Fortune API url has to be also set during the build process - it can be done through
-the `FORTUNE_URL` build argument.
+The Fortune API url can be passed through the `FORTUNE_URL` build argument.
 
     docker build --build-arg FORTUNE_URL=http://foo.bar -t fortune-front:local .
 
