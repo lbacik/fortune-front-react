@@ -23,8 +23,11 @@
   </head>
   <body class="d-flex flex-column min-vh-100">
 
-    <header class="py-5 text-right pr-5">
-      <h1>fortune</h1>
+    <header class="text-right pt-5 pr-5 pb-5">
+      <h1><a href="/">fortune</a></h1>
+<!--      <div class="">-->
+<!--        <a href="/about">about</a>-->
+<!--      </div>-->
     </header>
 
     <noscript>
@@ -33,14 +36,33 @@
 
     <div id="root"></div>
 
-    <footer class="footer mt-auto bg-dark p-4 text-center">
-        <div>
-          Homepage: <a href="https://github.com/lbacik/fortune-front-react">
-          https://github.com/lbacik/fortune-front-react
-        </a>
+    <footer class="footer mt-auto bg-dark p-4 row">
+        <div class="col-md-6">
+          <div>
+            Homepage: <a href="https://github.com/lbacik/fortune-front-react">
+              https://github.com/lbacik/fortune-front-react
+            </a>
+          </div>
+          <div id="api-url"></div>
+          <div id="version" class="mt-4"></div>
         </div>
-        <div id="api-url"></div>
-        <div id="version"></div>
+        <div class="col">
+          <div class="ml-form-embed"
+               data-account="3367969:n3r0q2p5w7"
+               data-form="4769234:p2h4n1">
+          </div>
+        </div>
     </footer>
+    <!-- MailerLite Universal -->
+    <script>
+      (function(m,a,i,l,e,r){ m['MailerLiteObject']=e;function f(){
+        var c={ a:arguments,q:[]};var r=this.push(c);return "number"!=typeof r?r:f.bind(c.q);}
+        f.q=f.q||[];m[e]=m[e]||f.bind(f.q);m[e].q=m[e].q||f.q;r=a.createElement(i);
+        var _=a.getElementsByTagName(i)[0];r.async=1;r.src=l+'?v'+(~~(new Date().getTime()/1000000));
+        _.parentNode.insertBefore(r,_);})(window, document, 'script', 'https://static.mailerlite.com/js/universal.js', 'ml');
+
+      var ml_account = ml('accounts', '3367969', 'n3r0q2p5w7', 'load');
+    </script>
+    <!-- End MailerLite Universal -->
   </body>
 </html>

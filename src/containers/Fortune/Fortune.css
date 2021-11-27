@@ -2,7 +2,7 @@
     font-size: large;
 }
 
-p:hover {
+p#fortune:hover {
     background-color: yellowgreen;
 }
 

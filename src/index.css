@@ -9,6 +9,16 @@ header {
   color: aliceblue;
 }
 
+header a {
+  color: #fff;
+}
+
+header a:hover {
+  text-decoration: none;
+  color: darkslategrey;
+  font-weight: bold;
+}
+
 footer {
   font-size: small;
   min-height: 100px;
@@ -18,4 +28,8 @@ footer {
 footer a {
   text-decoration: none;
   color: darkgray;
+}
+
+.ml-input-horizontal {
+  padding-top: 3px;
 }

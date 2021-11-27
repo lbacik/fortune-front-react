@@ -8,7 +8,7 @@ const fortuneUrl = process.env.REACT_APP_FORTUNE_URL || 'http://localhost:8080'
 class Fortune extends Component {
 
     getFortune() {
-        axios.get(`${fortuneUrl}/fortune`)
+        axios.get(`${fortuneUrl}/fortune/`)
             .then(res => {
                 this.props.setFortune(
                     {
