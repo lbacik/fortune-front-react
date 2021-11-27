@@ -4,24 +4,28 @@ import Fortune from './containers/Fortune/Fortune'
 import Explorer from './containers/Explorer/Explorer'
 import ExplorerToggle from './components/ExplorerToggle/ExplorerToggle'
 import Layout from './components/Layout/Layout'
+import SetupState from './components/SetupState'
 import { connect } from 'react-redux'
+import { Route } from 'react-router-dom';
 
 class App extends Component {
 
     render() {
-
         return (
-            <Layout>
-                <div className="d-flex flex-row">
-                    <div className="col-3 m-2 p-0 pb-2">
-                        <ExplorerToggle />
-                        {this.props.explorerShow === true && <Explorer /> }
+            <Route path='/:dbFile?/:dbFileIndex?'>
+                <SetupState />
+                <Layout>
+                    <div className="d-flex flex-row">
+                        <div className="col-3 m-2 p-0 pb-2">
+                            <ExplorerToggle />
+                            {this.props.explorerShow === true && <Explorer /> }
+                        </div>
+                        <div className="container-fluid pt-5">
+                            <Fortune />
+                        </div>
                     </div>
-                    <div className="container-fluid pt-5">
-                        <Fortune />
-                    </div>
-                </div>
-            </Layout>
+                </Layout>
+            </Route>
         );
     }
 }
