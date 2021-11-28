@@ -1,7 +1,7 @@
 
 import axios from 'axios'
 
-const fortuneUrl = process.env.REACT_APP_FORTUNE_URL
+const fortuneUrl = process.env.REACT_APP_FORTUNE_URL || 'http://localhost:8080'
 
 const getFortune = (callback, path, index) => {
 
