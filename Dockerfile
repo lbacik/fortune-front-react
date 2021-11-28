@@ -1,4 +1,4 @@
-FROM node:14 as base
+FROM node:16 as base
 
 ARG PROJECT_DIR=/opt/project
 ARG FORTUNE_URL
@@ -11,7 +11,7 @@ WORKDIR ${PROJECT_DIR}
 RUN npm install \
     && npm run build
 
-FROM lbacik/nginx-index
+FROM lbacik/nginx-index:react
 
 ARG PROJECT_DIR=/opt/project
 
