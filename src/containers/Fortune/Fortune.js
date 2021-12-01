@@ -53,11 +53,10 @@ class Fortune extends Component {
                    onClick={() => this.getFortune()}
                    dangerouslySetInnerHTML={{__html: fortune}}>
                 </p>
-                <div className="source pl-4 text-right text-black-50">
+                <div className="source pr-4 text-right text-black-50">
                     [file: {fileLink} | index: {this.props.index}]
                 </div>
             </div>
-
         )
     }
 }
