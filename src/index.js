@@ -8,8 +8,8 @@ import { createStore } from 'redux'
 import reducer from './store/reducer'
 import { Provider } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom';
+import { fortuneUrl } from './services/get-fortune'
 
-const fortuneUrl = process.env.REACT_APP_FORTUNE_URL || 'http://localhost:8080'
 const store = createStore(reducer)
 
 ReactDOM.render(
