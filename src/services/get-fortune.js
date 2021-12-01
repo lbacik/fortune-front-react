@@ -24,4 +24,4 @@ const getFortune = (callback, path, index) => {
         })
 }
 
-export default getFortune
+export { getFortune, fortuneUrl }

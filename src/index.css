@@ -33,3 +33,11 @@ footer a {
 .ml-input-horizontal {
   padding-top: 3px;
 }
+
+footer .info-issues {
+  color: cornflowerblue;
+}
+
+footer .social-media-icons i {
+  color: dimgray;
+}

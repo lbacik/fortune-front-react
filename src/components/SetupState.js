@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { connect } from 'react-redux'
-import getFortune from '../services/get-fortune'
+import { getFortune } from '../services/get-fortune'
 
 function SetupState(props) {
 
