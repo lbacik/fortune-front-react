@@ -16,29 +16,50 @@ class Explorer extends Component  {
 
     state = {
         root: `${fortuneUrl}/fortune`,
-        path: undefined,
+        path: '',
         list: [],
         listType: this.LIST_TYPE_PATH,
     }
 
-    getList(item) {
+    basename(path) {
+        return path.split('/').reverse()[0]
+    }
 
+    basenameUp(path) {
+        const parent = path.split('/').slice(0, -1).join('/')
+        return parent == '' ? parent : parent + '/'
+    }
+
+    getList(path) {
         let newListType = this.LIST_TYPE_PATH
 
-        if (item === this.ITEM_PATH_UP) {
-            newListType = this.LIST_TYPE_PATH
-            this.props.changePath('') // FIXME
-        } else if (item !== '' && item.slice(-1) !== '/') {
+        if (path !== '' && path.slice(-1) !== '/') {
             newListType = this.LIST_TYPE_FILE
         }
 
-        const url = `${[this.state.root, this.props.path].join('/')}?explore`
+        const url = `${[this.state.root, path].join('/')}?explore`
 
         axios.get(`${url}`)
             .then(res => {
+
+                let result = res.data
+
+                if (newListType == this.LIST_TYPE_PATH) {
+
+                    const folders = []
+                    const files = []
+
+                    res.data.filter((e) => e.slice(-1) == '/' ? folders.push(e) : files.push(e))
+
+                    folders.sort()
+                    files.sort()
+
+                    result = folders.concat(files)
+                }
+
                 this.setState({
-                    path: this.props.path,
-                    list: res.data,
+                    path: path,
+                    list: result,
                     listType: newListType,
                 })
             })
@@ -48,10 +69,19 @@ class Explorer extends Component  {
         this.getList(this.props.path)
     }
 
+    createUpItem(path) {
+        return (
+            <ItemFS key = 'UP'
+                    onClick = {() => this.props.changePath(path)}
+                    additionalClasses = {['up', 'pl-1']}
+            >{this.ITEM_PATH_UP}</ItemFS>
+        )
+    }
+
     createItemFS(item, additionalClasses = []) {
         return (
             <ItemFS key = {item}
-                    onClick = {() => this.props.changePath(item)}
+                    onClick = {() => this.props.changePath([this.state.path, item].join(''))}
                     additionalClasses = {additionalClasses}
             >{item}</ItemFS>
         )
@@ -88,12 +118,12 @@ class Explorer extends Component  {
 
         let up = null
         if (this.props.path !== '') {
-            up = this.createItemFS(this.ITEM_PATH_UP, ['up', 'pl-1'])
+            up = this.createUpItem(this.basenameUp(this.state.path))
         }
 
         return (
             <ul className="explorer p-2 rounded">
-                <li className="path text-right rounded">{this.props.path}</li>
+                <li className="path text-right rounded">{this.state.path}</li>
                 {[up, ...items]}
             </ul>
         )
