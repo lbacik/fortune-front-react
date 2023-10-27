@@ -4,8 +4,8 @@ import ItemFS from './Item/ItemFS'
 import ItemFortune from "./Item/ItemFortune"
 import axios from "axios"
 import { connect } from 'react-redux'
+import { fortuneUrl } from '../../services/get-fortune'
 
-const fortuneUrl = process.env.REACT_APP_FORTUNE_URL || 'http://localhost:8080'
 
 class Explorer extends Component  {
 
@@ -15,7 +15,7 @@ class Explorer extends Component  {
     LIST_TYPE_FILE = 'file'
 
     state = {
-        root: `${fortuneUrl}/fortune`,
+        root: `${fortuneUrl}`,
         path: '',
         list: [],
         listType: this.LIST_TYPE_PATH,
@@ -37,7 +37,7 @@ class Explorer extends Component  {
             newListType = this.LIST_TYPE_FILE
         }
 
-        const url = `${[this.state.root, path].join('/')}?explore`
+        const url = `${[this.state.root, path].join('/')}?explore=true`
 
         axios.get(`${url}`)
             .then(res => {

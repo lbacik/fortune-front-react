@@ -38,6 +38,11 @@ footer .info-issues {
   color: cornflowerblue;
 }
 
-footer .social-media-icons i {
-  color: dimgray;
+.api-label {
+  color: darkgray;
+}
+
+#api-url-select {
+  font-size: small;
+  background-color: darkgrey;
 }
