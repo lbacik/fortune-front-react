@@ -1,23 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import './Fortune.css'
-import axios from "axios"
+import { getFortune } from '../../services/get-fortune'
 
-const fortuneUrl = process.env.REACT_APP_FORTUNE_URL || 'http://localhost:8080'
 
 class Fortune extends Component {
 
-    getFortune() {
-        axios.get(`${fortuneUrl}/fortune/`)
-            .then(res => {
-                this.props.setFortune(
-                    {
-                        fortune: res.data.fortune,
-                        file: res.data.file || undefined,
-                        index: res.data.index || undefined,
-                    }
-                )
-            })
+    getFortuneWrapper() {
+        getFortune((fortune) => this.props.setFortune(fortune))
     }
 
     transformFortuneStr() {
@@ -30,7 +20,7 @@ class Fortune extends Component {
 
     componentDidMount() {
         if (this.props.fortune === undefined) {
-            this.getFortune()
+            this.getFortuneWrapper()
         }
     }
 
@@ -50,7 +40,7 @@ class Fortune extends Component {
             <div className="container mt-5 sticky-top">
                 <p id="fortune"
                    className="p-4 rounded"
-                   onClick={() => this.getFortune()}
+                   onClick={() => this.getFortuneWrapper()}
                    dangerouslySetInnerHTML={{__html: fortune}}>
                 </p>
                 <div className="source pr-4 text-right text-black-50">

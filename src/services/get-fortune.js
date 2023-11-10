@@ -1,7 +1,11 @@
 
 import axios from 'axios'
 
-const fortuneUrl = process.env.REACT_APP_FORTUNE_URL || 'http://localhost:8080'
+let fortuneUrl = process.env.REACT_APP_FORTUNE_URL || 'https://debian-12.api.fortune.luka.sh'
+
+function setFortuneUrl(url) {
+    fortuneUrl = url
+}
 
 const getFortune = (callback, path, index) => {
 
@@ -10,9 +14,9 @@ const getFortune = (callback, path, index) => {
        uri += '/' + index
     }
 
-    console.log(`URI: ${uri}`)
+    console.log(`URL: ${fortuneUrl}${uri}`)
 
-    axios.get(`${fortuneUrl}/fortune/${uri}`)
+    axios.get(`${fortuneUrl}/${uri}`)
         .then(res => {
             callback(
                 {
@@ -24,4 +28,4 @@ const getFortune = (callback, path, index) => {
         })
 }
 
-export { getFortune, fortuneUrl }
+export { getFortune, fortuneUrl, setFortuneUrl }
