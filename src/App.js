@@ -6,26 +6,32 @@ import ExplorerToggle from './components/ExplorerToggle/ExplorerToggle'
 import Layout from './components/Layout/Layout'
 import SetupState from './components/SetupState'
 import { connect } from 'react-redux'
-import { Route } from 'react-router-dom';
+import {Route, Switch} from 'react-router-dom';
+import Search from "./components/Search/Search";
 
 class App extends Component {
 
     render() {
         return (
-            <Route path='/:dbFile?/:dbFileIndex?'>
-                <SetupState />
-                <Layout>
-                    <div className="d-flex flex-row">
-                        <div className="col-3 m-2 p-0 pb-2">
-                            <ExplorerToggle />
-                            {this.props.explorerShow === true && <Explorer /> }
+            <Switch>
+                <Route path='/search/:query?'>
+                    <Search />
+                </Route>
+                <Route path='/:dbFile?/:dbFileIndex?'>
+                    <SetupState />
+                    <Layout>
+                        <div className="d-flex flex-row mb-4">
+                            <div className="col-3 m-2 p-0 pb-2">
+                                <ExplorerToggle />
+                                {this.props.explorerShow === true && <Explorer /> }
+                            </div>
+                            <div className="container-fluid pt-5">
+                                <Fortune />
+                            </div>
                         </div>
-                        <div className="container-fluid pt-5">
-                            <Fortune />
-                        </div>
-                    </div>
-                </Layout>
-            </Route>
+                    </Layout>
+                </Route>
+            </Switch>
         );
     }
 }

@@ -9,6 +9,12 @@ header {
   color: aliceblue;
 }
 
+header h1 {
+  margin: 0;
+  font-size: 4em;
+  padding: 10px 0 10px 10px;
+}
+
 header a {
   color: #fff;
 }
