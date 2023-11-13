@@ -27,9 +27,9 @@ const ApiSelect = (props) => {
                     API links:
                 </div>
                 <div className="col-auto">
-                    {props.options.map((option) => {
+                    {props.options.map((option, index) => {
                         return (
-                            <div className="container pr-0">
+                            <div className="container pr-0" key={index}>
                                 <a href={`https://${option}/docs`}>{`https://${option}`}</a>
                             </div>
                         )

@@ -29,10 +29,6 @@ const Pagination = (props) => {
         return pageNumbers;
     };
 
-    const handlePageChange = (pageNumber) => {
-        props.setPage(pageNumber);
-    };
-
     return (
         <div className="pagination mt-2">
             <ul className="pagination">
@@ -42,14 +38,12 @@ const Pagination = (props) => {
                     if (isNumber(pageNumber) === false) {
                         return <li key={index}>...</li>
                     }
-
                     return (
                         <li
                             key={index}
                             className={pageNumber === currentPageFromOne ? 'active' : ''}
-                            onClick={() => handlePageChange(pageNumber - 1)}
                         >
-                            <a href="#">{pageNumber}</a>
+                            <a href="#" onClick={() => props.setPage(pageNumber - 1)}>{pageNumber}</a>
                         </li>
                     )
                 })}

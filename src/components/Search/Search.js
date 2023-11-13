@@ -25,29 +25,30 @@ const Search = (props) => {
 
     const params = useParams()
 
-    useEffect(() => {
+    useEffect(async () => {
         setSearchTerm(params.query || '')
         if (searchTerm !== '') {
-            doRequest()
+            await doRequest()
         }
     }, []);
 
-    const setPageWrapper = (page) => {
-        console.log('setPageWrapper', page)
-        console.log('total pages', Math.ceil(total / limit))
-
+    const setPageWrapper = async (page) => {
         if (page < 0 || page > Math.ceil(total / limit)) {
             return
         }
 
-        setPage(page)
-        doRequest()
+        await doRequest(page)
     }
 
-    const doRequest = async () => {
+    const doRequest = async (localPage = null, localLimit = null) => {
+
+        localPage === null ? localPage = page : setPage(localPage)
+
         const query = encodeURIComponent(searchTerm + ' _index:' + getIndexName())
-        const res = await fetch(SEARCH_API + `?q=${query}&page=${page}&limit=${limit}`)
+        const res = await fetch(SEARCH_API + `?q=${query}&page=${localPage}&limit=${limit}`)
         const json = await res.json()
+
+        console.log('request', page, localPage, limit)
 
         setTotal(json.hits.total.value || 0)
         setSearchResults(json.hits.hits.map(item => item._source) || [])
