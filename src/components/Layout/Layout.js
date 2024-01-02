@@ -3,9 +3,9 @@ import Aux from '../../hoc/Aux'
 
 const Layout = (props) => (
     <Aux>
-        <main role="main">
+        <div>
             {props.children}
-        </main>
+        </div>
     </Aux>
 )
 
