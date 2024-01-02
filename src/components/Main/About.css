@@ -1,0 +1,46 @@
+
+blockquote cite {
+    font-weight: 200;
+}
+
+.about-a {
+    color: white;
+    background-color: lightsalmon;
+    text-decoration: none;
+}
+
+.about-a:hover {
+    color: white;
+    background-color: darksalmon;
+    text-decoration: none;
+}
+
+.about-a-blue {
+    color: white;
+    background-color: lightskyblue;
+    text-decoration: none;
+}
+
+.about-a-blue:hover {
+    color: white;
+    background-color: deepskyblue;
+    text-decoration: none;
+}
+
+.about-a-backend {
+    color: gray;
+    background-color: #eee;
+    text-decoration: none;
+    font-weight: lighter;
+    font-size: smaller;
+}
+
+.about-a-backend:hover {
+    color: white;
+    background-color: darkgrey;
+    text-decoration: none;
+}
+
+.i-black {
+    color: black !important;
+}

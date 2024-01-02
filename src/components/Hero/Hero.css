@@ -1,0 +1,16 @@
+
+.fortune-space {
+    position: relative;
+    height: 70vh;
+    margin-top: 80px;
+
+}
+
+.col-explorer {
+    width: 25%;
+    background-color: #3a3c52;
+}
+
+.explorer {
+    height: 70vh;
+}
