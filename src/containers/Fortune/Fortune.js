@@ -28,23 +28,28 @@ class Fortune extends Component {
 
         const fortune = this.props.fortune !== undefined ? this.transformFortuneStr() : ''
 
-        const fileLink = (
-            <span
-                className="link"
-                onClick={() => this.props.onShowFileInExplorer(this.props.file, this.props.index)}>
-                {this.props.file}
-            </span>
-        )
+        // const fileLink = (
+        //     <span
+        //         className="link"
+        //         onClick={() => this.props.onShowFileInExplorer(this.props.file, this.props.index)}>
+        //         {this.props.file}
+        //     </span>
+        // )
 
         return (
-            <div className="container mt-5 sticky-top">
+            <div className="container mb-4">
                 <p id="fortune"
-                   className="p-4 rounded"
-                   onClick={() => this.getFortuneWrapper()}
+                   className="p-4 rounded d-table-cell"
+                   // onClick={() => this.getFortuneWrapper()}
                    dangerouslySetInnerHTML={{__html: fortune}}>
                 </p>
-                <div className="source pr-4 text-right text-black-50">
-                    [file: {fileLink} | index: {this.props.index}]
+                <div className="source text-end">
+                    <span
+                        className="source-data rounded rounded-2 p-2 pt-1 pb-1 link"
+                        onClick={() => this.props.onShowFileInExplorer(this.props.file, this.props.index)}
+                    >
+                        file: {this.props.file} | index: {this.props.index}
+                    </span>
                 </div>
             </div>
         )

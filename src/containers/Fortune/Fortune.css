@@ -1,16 +1,28 @@
 #fortune {
     font-size: large;
+    font-weight: 200;
 }
 
-p#fortune:hover {
-    background-color: yellowgreen;
-}
+/*p#fortune:hover {*/
+/*    background-color: #444444; !*yellowgreen;*!*/
+/*}*/
 
 .source {
     font-size: smaller;
+    font-weight: 100;
+    color: #fff;
+}
+
+.source-data {
+    /*background-color: #444;*/
+    color: darkgrey;
 }
 
 span:hover.link {
     color: cornflowerblue;
-    font-weight: bolder;
+    font-weight: bold;
+}
+
+.vertical-center {
+    margin: 0;
 }
