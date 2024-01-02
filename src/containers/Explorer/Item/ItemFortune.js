@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 const ItemFortune = (props) => {
     const fortune = props.children.substr(0, 30)
-    const classes = ['d-flex', 'flex-row', 'rounded']
+    const classes = ['px-4', 'd-flex', 'flex-row', 'rounded', 'item-fortune']
 
     if (props.file === props.fortune_file && props.index === props.fortune_index) {
         classes.push('hit')
@@ -11,8 +11,8 @@ const ItemFortune = (props) => {
 
     return (
         <li className={classes.join(' ')} style={{'fontSize': 'smaller'}} onClick={props.onClick}>
-            <div className="flex-column col-2 text-right p-0 pr-2">{props.index}</div>
-            <div className="flex-column">{fortune}</div>
+            <div className="flex-column pe-2 text-right item-fortune-index">{props.index}</div>
+            <div className="flex-column item-fortune-text">{fortune}</div>
         </li>
     )
 }

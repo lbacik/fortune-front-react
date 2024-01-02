@@ -1,10 +1,12 @@
 .explorer {
-    background-color: cornflowerblue;
+    /*background-color: cornflowerblue;*/
     color: azure;
 }
 
 .explorer .path {
-    color: lightblue;
+    color: white;
+    font-weight: 400;
+    padding: 10px;
 }
 
 ul.explorer {
@@ -15,16 +17,46 @@ ul.explorer {
 }
 
 .explorer li:hover {
-    background-color: darkblue;
-    color: aliceblue;
+    background-color: #5a2601;
     /*font-size: larger;*/
+    color: white;
+    font-weight: 400;
 }
 
 .explorer .up {
-    background-color: cornflowerblue;
+    /*background-color: cornflowerblue;*/
     color: lightblue;
 }
 
 .explorer .hit {
-    background-color: royalblue;
+    background-color: #963f01;
+    /*background-color: darkorange;*/
+    color: #fff;
+}
+
+.item-fs {
+    font-weight: 100;
+    color: #999;
+}
+
+.item-folder {
+    font-weight: 400;
+    color: #bbb;
+}
+
+.item-folder i {
+    font-weight: 100;
+}
+
+.item-fortune-index {
+    font-family: monospace;
+    color: gray;
+}
+
+.hit > .item-fortune-index {
+    color: #fff;
+}
+
+.item-fortune-text {
+    font-weight: 100;
 }

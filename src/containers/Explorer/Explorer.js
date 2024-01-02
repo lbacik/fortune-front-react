@@ -81,6 +81,7 @@ class Explorer extends Component  {
     createItemFS(item, additionalClasses = []) {
         return (
             <ItemFS key = {item}
+                    name = {item}
                     onClick = {() => this.props.changePath([this.state.path, item].join(''))}
                     additionalClasses = {additionalClasses}
             >{item}</ItemFS>
@@ -123,7 +124,7 @@ class Explorer extends Component  {
 
         return (
             <ul className="explorer p-2 rounded">
-                <li className="path text-right rounded">{this.state.path}</li>
+                <div className="path text-center mb-2">{this.state.path}</div>
                 {[up, ...items]}
             </ul>
         )
