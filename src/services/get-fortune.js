@@ -1,7 +1,7 @@
 
 import axios from 'axios'
 
-let fortuneUrl = process.env.REACT_APP_FORTUNE_URL || 'https://debian-12.api.fortune.luka.sh'
+let fortuneUrl = process.env.REACT_APP_FORTUNE_URL || 'https://api.fortune.luka.sh'
 
 function setFortuneUrl(url) {
     fortuneUrl = url
